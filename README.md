@@ -15,7 +15,6 @@ void addition (int a,int b)
 }
 
 void subtraction (int a,int b)
-
 {
 
     int sum1 = a-b;
