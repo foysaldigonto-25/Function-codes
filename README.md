@@ -38,3 +38,29 @@ int main (){
 
     return 0;
 }
+
+2.Returning value from functiion...
+
+#include <iostream>
+
+#include <conio.h>
+
+using namespace std;
+
+double addition (double,double);
+
+int main(){
+
+    cout<<addition (30.6,50.7);
+
+
+    getch();
+}
+
+double addition(double a,double b){
+
+     double sum = a+b;
+     return sum;
+}
+
+
