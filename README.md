@@ -63,4 +63,38 @@ double addition(double a,double b){
      return sum;
 }
 
+3.
+#include <iostream>
+
+using namespace std;
+
+void calculateTriangleArea (float a,float b)
+{
+
+    float area = 0.5*a*b;
+    cout<<"Area of the triangle is :"<<area<<endl;
+}
+
+void calculateRectangleArea ( float c,float d)
+
+{
+
+    float area = c*d;
+     cout<<"Area of the rectangle is :"<<area<<endl;
+}
+
+  int main (){
+  
+      float a,b,c,d;
+      cout<<"Enter the base and height of the triangle :\n";
+      cin>>a>>b;
+      calculateTriangleArea(a,b);
+
+      cout<<"\nEnter the length and width of the rectangle :\n";
+      cin>>c>>d;
+      calculateRectangleArea(c,d);
+
+      return 0;
+  }
+
 
