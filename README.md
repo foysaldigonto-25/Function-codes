@@ -97,4 +97,45 @@ void calculateRectangleArea ( float c,float d)
       return 0;
   }
 
+4.
+#include <iostream>
+<br>
+using namespace std;
+
+void yearlySalary (double salary)
+
+{
+
+    double totalSalary = (double)salary*12;
+    cout<<"Total yearly salary :"<<totalSalary<<endl;
+}
+
+ void taxOnYearlySalary (double salary)
+ 
+ {
+ 
+     double totalSalary = (double)salary*12;
+     double tax = totalSalary*0.1;
+     if (totalSalary >400000)
+     {
+         cout<<"Total tax on yearly salary :"<<tax<<endl;
+     }
+     else
+     {
+        cout<<"Tax not applicable"<<endl;
+     }
+ }
+
+ int main(){
+
+     double salary;
+     cout<<"Enter salary amount:";
+     cin>>salary;
+     yearlySalary(salary);
+     taxOnYearlySalary(salary);
+
+     return 0;
+ }
+
+
 
