@@ -1,0 +1,55 @@
+1.
+#include <iostream>
+using namespace std;
+
+void calculateAvgmark(int marks [],int *sNum){
+
+    int sum = 0;
+    for (int i=0;i<*sNum;i++)
+    {
+        sum = sum + marks[i];
+    }
+    double avg = sum / *sNum;
+    cout<<"Sum of student's mark :"<<avg<<endl;
+}
+
+void highestMark (int marks [],int *sNum){
+
+
+ int stdCount = 0;
+ int highest = marks[0];
+
+  for (int i=0;i<*sNum;i++)
+  {
+      if (marks[i]>highest)
+      {
+        highest = marks[i];
+      }
+
+      if (marks[i]>=40)
+      {
+          stdCount++;
+      }
+  }
+  cout<<"Highest mark among students :"<<highest<<endl;
+  cout<<"Students scoring >=40 :"<<stdCount<<endl;
+}
+
+  int main (){
+
+     int numOfStd;
+     cout<<"Enter number of students :";
+     cin>>numOfStd;
+
+     int marks [numOfStd];
+
+      for (int i=0;i<numOfStd;i++)
+      {
+        cin>>marks[i];
+      }
+
+     calculateAvgmark(marks , &numOfStd);
+     highestMark(marks ,&numOfStd);
+
+     return 0;
+ }
