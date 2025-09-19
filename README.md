@@ -137,5 +137,63 @@ void yearlySalary (double salary)
      return 0;
  }
 
+5.
+
+#include <iostream>
+using namespace std;
+
+void calculateMaxmin(int *a,int *b)
+{
+    if (*a>*b)
+    {
+        cout<<"Maximum among two number a,b is a = "<<*a<<endl;
+        cout<<"Minimum number is :"<<*b<<endl;
+    }
+    else if (*b>*a)
+    {
+        cout<<"Maximum among two number a,b is b = "<<*b<<endl;
+        cout<<"Minimum number is :"<<*a<<endl;
+    }
+}
+   int main (){
+
+       int num1,num2;
+       cout<<"Enter 2 numbers :";
+       cin>>num1;
+       cin>>num2;
+
+       calculateMaxmin(&num1,&num2);
+
+       return 0;
+   }
+
+6.
+
+#include <iostream>
+using namespace std;
+
+// Function to calculate factorial using pointer parameter
+void factorial(int *num, long long *fact) {
+    *fact = 1;  // Initialize factorial result
+    for (int i = 1; i <= *num; i++) {
+        *fact = (*fact) * i;  // Update factorial value
+    }
+}
+
+int main() {
+    int n;
+    long long result;  // To store factorial
+
+    cout << "Enter a number: ";
+    cin >> n;
+
+    // Call the function with pointers
+    factorial(&n, &result);
+
+    cout << "Factorial of " << n << " = " << result << endl;
+
+    return 0;
+}
+
 
 
