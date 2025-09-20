@@ -1,0 +1,103 @@
+#include <iostream>
+using namespace std;
+
+class Employee {
+
+private:
+    int empCode;
+    string name;
+    double baseMonthlySalary;
+
+public:
+
+    Employee() {
+        // ❌ Wrong: you redeclared local variables (int empCode = 0;)
+        // ✅ Fix: directly assign to class members
+        empCode = 0;
+        name = " ";
+        baseMonthlySalary = 0.0;
+
+        cout << "Empty constructor called!!" << endl;
+    }
+
+    Employee(int code, string names, double salary) {
+        // ❌ Wrong: int empCode = code; (local variable)
+        // ✅ Fix: assign to class attributes
+        empCode = code;
+        name = names;
+        baseMonthlySalary = salary;
+
+        cout << "Parameterized constructor called!!" << endl;
+    }
+
+    void setAll(string names, int code, double salary) {
+        // ❌ Wrong: string name = names; (local variable again)
+        // ✅ Fix: assign to data members
+        name = names;
+        empCode = code;
+        baseMonthlySalary = salary;
+    }
+
+    void setempcode(int code) {
+        empCode = code;  // ✅ no "int" here
+    }
+
+    void setname(string names) {
+        name = names;  // ✅ no "string" here
+    }
+
+    void setbaseMonthlySalary(double salary) {
+        baseMonthlySalary = salary;  // ✅ no "double" here
+    }
+
+    int getempCode() {
+        return empCode;
+    }
+
+    string getName() {
+        return name;
+    }
+
+    double getBaseMonthlySalary() {
+        return baseMonthlySalary;
+    }
+
+    double calculateNetMonthlySalary() {
+        double houseAllowance = baseMonthlySalary * 0.15;
+        double medicalAllowance = baseMonthlySalary * 0.05;
+
+        double calSalary = baseMonthlySalary + houseAllowance + medicalAllowance;
+
+        double flatTax = calSalary * 0.10; // ❌ Wrong before: tax was on base only
+        calSalary -= flatTax;
+
+        if (calSalary > 45000) {
+            calSalary -= 2000; // source tax
+        }
+
+        return calSalary;
+    }
+
+    void display() {
+        cout << "Employee's name : " << name << endl;
+        cout << "Employee's code : " << empCode << endl;
+        cout << "Employee's monthly salary : " << baseMonthlySalary << endl;
+        cout << "Salary with allowance : " << calculateNetMonthlySalary() << endl;
+    }
+};
+
+int main() {
+    Employee e1;
+    Employee e2;
+
+    e1.setAll("Digonto", 1029, 30000);
+    e1.display();
+
+    cout << endl;
+
+    e2.setAll("Wasif", 8373, 25000);
+    e2.display();
+
+    return 0;
+}
+
