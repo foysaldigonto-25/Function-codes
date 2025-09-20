@@ -101,3 +101,118 @@ int main() {
     return 0;
 }
 
+2.
+
+#include <iostream>
+using namespace std;
+
+class Teacher{
+
+private :
+    string name;
+    int teacherId;
+    double baseMonthlySalary;
+
+public :
+    Teacher (){
+        name = " ";
+        teacherId = 0;
+        baseMonthlySalary =0.0;
+
+        cout<<"Empty constructor called!!"<<endl;}
+        
+
+    Teacher (string names,int id,double salary){
+
+        name = names;
+        teacherId = id;
+        baseMonthlySalary = salary;
+
+        cout<<"Parameterized constructor called!!"<<endl;}
+
+    void setAll (string names,int id,double salary){
+
+        name = names;
+        teacherId = id;
+        baseMonthlySalary = salary;
+    }
+    void setName (string names){
+    name = names;}
+
+    void setTeacherId (int id){
+    teacherId = id;}
+
+    void setBaseMonnthlySalary (double salary){
+    baseMonthlySalary = salary;}
+
+    string getName (){
+     return name;}
+
+    int getTeacherId (){
+    return teacherId;}
+
+    double getBaseMonthlySalary (){
+    return baseMonthlySalary;}
+
+    double calculateNetMonthlySalary(){
+
+        double calSalary;
+
+        double researchAllowance = baseMonthlySalary*0.2;
+
+        double gradingAllowance = baseMonthlySalary*0.1;
+
+        calSalary = baseMonthlySalary+researchAllowance+gradingAllowance;
+
+        double tax = calSalary*0.12;
+
+        double netSalary = calSalary - tax;
+
+        if (calSalary>50000)
+        {
+            calSalary-=1500;
+        }
+
+
+        return netSalary;
+    }
+    void display(){
+
+        cout<<"Enter teacher id :"<<teacherId<<endl;
+        cout<<"Enter teacher name :"<<name<<endl;
+        cout<<"Enter teacher salary :"<<baseMonthlySalary<<endl;
+        cout<<"Net total salary :"<<calculateNetMonthlySalary()<<endl;}
+
+    };
+
+    int main (){
+
+        Teacher t1;
+        Teacher t2;
+
+        cout<<endl;
+
+
+        t1.setAll("Digonto",8383,50000);
+        t1.calculateNetMonthlySalary();
+        t1.display();
+
+        cout<<endl;
+
+
+        t2.setAll("Sifat",8378,60000);
+        t2.calculateNetMonthlySalary();
+        t2.display();
+
+        return 0;
+    }
+
+
+
+
+
+
+
+
+
+
