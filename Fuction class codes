@@ -207,6 +207,117 @@ public :
         return 0;
     }
 
+3.
+
+//corrected some code parts
+
+#include <iostream>
+using namespace std;
+
+class Product{
+
+private :
+    string productName;
+    int productId;
+    double basePrice;
+
+public :
+    Product (){
+        productName = " ";
+        productId = 0;
+        basePrice =0.0;
+
+        cout<<"Empty constructor called!!"<<endl;}
+
+Product (string names,int id,double price){
+
+        productName = names;
+        productId = id;
+        basePrice= price;
+
+        cout<<"Parameterized constructor called!!"<<endl;}
+
+    void setAll (string names,int id,double price){
+
+        productName = names;
+        productId = id;
+        basePrice = price;
+    }
+    void setName (string names){
+    productName = names;}
+
+    void setProductId (int id){
+    productId = id;}
+
+    void setBasePrice (double price){
+    basePrice = price;}
+
+    string getProductName (){
+    return productName;}
+
+    int getProductId (){
+    return productId;}
+
+    double getBasePrice (){
+    return basePrice;}
+
+    double calculateFinalPrice(){
+
+        double calPrice;
+        double shippingCharge;
+
+        shippingCharge = basePrice*0.05;
+        calPrice=basePrice+shippingCharge;
+
+        double discount = basePrice*0.1;
+
+        if (basePrice>1000)
+        {
+            calPrice = basePrice - discount;
+        }
+
+        double vat = calPrice*0.15;
+        double netPrice = calPrice+vat;
+
+        return netPrice;
+    }
+    void display(){
+
+        cout<<"Enter product id :"<<productId<<endl;
+        cout<<"Enter product name :"<<productName<<endl;
+        cout<<"Enter product price :"<<basePrice<<endl;
+        cout<<"Final price :"<<calculateFinalPrice()<<endl;
+        }
+
+    };
+
+    int main (){
+
+        Product();
+
+        Product p1("Perfume",6283,5000);
+        Product p2("Foam",6302,600);
+
+        cout<<endl;
+
+
+        p1.display();
+
+        cout<<endl;
+
+        p2.display();
+
+        return 0;
+    }
+
+
+
+
+
+
+
+
+
 
 
 
